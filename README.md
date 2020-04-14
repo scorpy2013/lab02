@@ -29,8 +29,7 @@ $ alias edit=vs
 $ cd ${GITHUB_USERNAME}/workspace
 $ source scripts/activate
 ```
-
-```sh
+# создаем скрытую папку .config и добавить в нее файл hub 
 $ mkdir ~/.config
 $ cat > ~/.config/hub <<EOF
 github.com:
@@ -40,20 +39,54 @@ github.com:
 EOF
 $ git config --global hub.protocol https
 ```
-
-```sh
 $ mkdir projects/lab02 && cd projects/lab02
 $ git init
+Initialized empty Git repository in C:/Users/User/lab02/scorpy2013/workspace/workspace/projects/lab02/.git/
 $ git config --global user.name ${GITHUB_USERNAME}
 $ git config --global user.email ${GITHUB_EMAIL}
+61156928+scorpy2013@users.noreply.github.com
 # check your git global settings
 $ git config -e --global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = scorpy2013
+	email = 61156928+scorpy2013@users.noreply.github.com
+[core]
+	editor = \"C:\\Users\\User\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" --wait
+[hub]
+	protocol = https
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab02.git
 $ git pull origin master
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 96 (delta 7), reused 5 (delta 2), pack-reused 72
+Unpacking objects: 100% (96/96), 1.29 MiB | 96.00 KiB/s, done.
+From https://github.com/scorpy2013/lab02
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
 $ touch README.md
 $ git status
+On branch master
+nothing to commit, working tree clean
 $ git add README.md
 $ git commit -m"added README.md"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'User@User-PC.(none)')
 $ git push origin master
 ```
 
@@ -69,7 +102,242 @@ $ git push origin master
 
 ```sh
 $ git pull origin master
+From https://github.com/scorpy2013/lab02
+ * branch            master     -> FETCH_HEAD
+Already up to date.
 $ git log
+commit 3f84b8805c2e5ff4059b3526e473b7b0c11dc161 (HEAD -> master, origin/master)
+Author: scorpy2013 <61156928+scorpy2013@users.noreply.github.com>
+Date:   Tue Apr 14 16:29:35 2020 +0300
+
+    Update README.md
+
+commit af8687b21746c774d987f07e8d89e3c9a3f821c2
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 14:14:56 2020 +0300
+
+    Update README.md
+
+...skipping...
+commit 3f84b8805c2e5ff4059b3526e473b7b0c11dc161 (HEAD -> master, origin/master)
+Author: scorpy2013 <61156928+scorpy2013@users.noreply.github.com>
+Date:   Tue Apr 14 16:29:35 2020 +0300
+
+    Update README.md
+
+commit af8687b21746c774d987f07e8d89e3c9a3f821c2
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 14:14:56 2020 +0300
+
+    Update README.md
+...skipping...
+commit 3f84b8805c2e5ff4059b3526e473b7b0c11dc161 (HEAD -> master, origin/master)
+Author: scorpy2013 <61156928+scorpy2013@users.noreply.github.com>
+Date:   Tue Apr 14 16:29:35 2020 +0300
+
+    Update README.md
+
+commit af8687b21746c774d987f07e8d89e3c9a3f821c2
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 14:14:56 2020 +0300
+
+    Update README.md
+
+commit 4162a0f6677e33bf76de5a06cad3385f35ccde43
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 14:14:39 2020 +0300
+
+    Update README.md
+
+commit 7542e7739792b8fcd0dbdfed0e45eb6d7a36c5f8
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 13:46:51 2020 +0300
+
+    Update README.md
+
+commit 2a8a860ea41d9c2c7016cd97d7be44dbd7e2bee0
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 13:27:26 2020 +0300
+
+    Add files via upload
+
+commit 82117e11305224ce9449d948f87ce0f8f1d83df0
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sat Mar 28 11:52:48 2020 +0300
+
+    changed syntax tag for blocks
+
+commit 9add2dc648d09840ba42601027705253b6903e2b
+Author: Vyacheslav.Vershinin <Vyacheslav.Vershinin@acronis.com>
+Date:   Thu Mar 12 16:50:53 2020 +0300
+
+    fixed #3 report scenario
+
+commit c0d965996c9929e4e33f4c3ff04aa38d37ccefd4
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Thu Mar 5 20:17:45 2020 +0300
+
+    Update README.md
+
+commit 7370432f9c661d97a72c36d35d4c346b11159184
+Merge: ed14855 36da062
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Thu Feb 28 17:24:16 2019 +0300
+
+    Merge pull request #1 from drewxa/patch-1
+
+    added homework
+
+commit 36da062d807b544e0af524275c3c79e73320f2b0
+Author: drewxa <bo.ro.da@mail.ru>
+Date:   Tue Feb 26 19:48:32 2019 +0300
+
+    added homework
+
+    Добавлено задания для самоподготовки:
+    * init
+    * commit
+    * log
+    * push
+    * rebase
+
+commit ed14855954e0f21b177e3e7e541eb763b86dd674
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Jan 20 11:28:59 2019 +0000
+
+    fixed lab ID
+
+commit 457bbf6275564245978ae511ed8aea53cda81de5
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Jan 20 11:25:58 2019 +0000
+
+    move hub installation to lab00
+
+commit 2565c654e3cf8322c6e7b02210cfbb04d25ba2e3
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Jan 20 13:29:16 2019 +0300
+
+    Update README.md
+
+commit 3e78c8c11ae5fba16a7e74e11b495c6584e018f7
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Jan 20 13:26:47 2019 +0300
+
+    Update README.md
+
+commit 4e04eb75d8c2f607770c264631910fdbe33c650c
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Jan 20 13:05:32 2019 +0300
+
+    Update README.md
+
+commit 82e7b76a958b4609b76804f0303cf5780c0d6d3b
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Thu Oct 26 19:00:56 2017 -0800
+
+    refactored
+
+commit dc253c16edc221bf23bcbe38a26608c5530333e6
+Author: justcppdev <justcppdev@ya.ru>
+Date:   Mon Sep 25 13:06:08 2017 +0300
+
+    Update README.md
+
+commit 97d9e6396164a2fbc9de30332ecfda968fac8222
+Author: justcppdev <justcppdev@ya.ru>
+Date:   Mon Sep 25 13:05:25 2017 +0300
+
+    Update README.md
+
+commit 9f9171c543d7ea6754d70f6135cfa81a60fcb8ec
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Jun 25 10:10:33 2017 +0300
+
+    Update README.md
+
+commit 5ae6ba5711dfd69566d777d4e5441c7130eeae02
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Tue Jun 13 10:54:05 2017 +0300
+
+    Create README.md
+
+commit 1ae112f815f66860c8d4723e552577b27fa945b5
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Mon May 22 09:40:11 2017 +0300
+
+    Update README.md
+
+commit 93cdc0fbcb421f69504b9ffaff6271c93fbeeda7
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 19:02:47 2017 +0300
+
+    refactoring
+
+commit dd2b22e9e8520ccb53aea44e2f54362fc7b8ae9b
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 11:45:05 2017 +0300
+
+    refactoring
+
+commit fc7458fe1df6051ad3ee2c57ce41b6d1d79dc03c
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 09:14:56 2017 +0300
+
+    Update README.md
+
+commit 5939fa15345c24caa0b598505a654d92fc3f9d05
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 09:00:00 2017 +0300
+
+    Update
+
+commit d15c811a75d24aba9fc09ca1b576553624c97096
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 08:59:48 2017 +0300
+
+    Update README.md
+
+commit 7d508e748267619b63d43353cc29d127ee6b4046
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 08:58:49 2017 +0300
+
+    Update README.md
+
+commit 5f55ce3d2159e63800d9881d2c0ead0d8fcceea6
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Wed May 17 08:20:16 2017 +0300
+
+    Update README.md
+
+commit a061595ee7a0691eff577586e4314f4335a6abdc
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Mon May 15 12:08:42 2017 +0300
+
+    Update README.md
+
+commit c54d4a0762bf19080da724657259dcc36ec302ca
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Sun Apr 30 11:12:04 2017 +0300
+
+    refactoring
+
+commit 3f1c1f6e462687e4f51909628167965f5ba70b67
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Thu Apr 27 15:13:25 2017 +0300
+
+    Update README.md
+
+commit a968e67febbb7cca46125868032c5f785a445f81
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Thu Apr 27 14:45:43 2017 +0300
+
+    Create README.md
+
+commit 550513f0218a8737ebbc17d40135afae4155b674
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Thu Apr 27 14:44:04 2017 +0300
+
+    Initial commit
 ```
 
 ```sh
@@ -133,8 +401,94 @@ $ edit README.md
 
 ```sh
 $ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        examples/
+        include/
+        scorpy2013/
+        sources/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
 $ git add .
+warning: LF will be replaced by CRLF in examples/example1.cpp.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in examples/example2.cpp.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in include/print.hpp.
+The file will have its original line endings in your working directory
+warning: adding embedded git repository: scorpy2013/workspace/workspace/projects/lab02
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:   git submodule add <url> scorpy2013/workspace/workspace/projects/lab02
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:   git rm --cached scorpy2013/workspace/workspace/projects/lab02
+hint: 
+hint: See "git help submodule" for more information.
+warning: LF will be replaced by CRLF in sources/print.cpp.
+The file will have its original line endings in your working directory
 $ git commit -m"added sources"
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        examples/
+        include/
+        scorpy2013/
+        sources/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@User-PC MINGW64 ~/lab02 (master)
+$ git add .
+warning: LF will be replaced by CRLF in examples/example1.cpp.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in examples/example2.cpp.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in include/print.hpp.
+The file will have its original line endings in your working directory
+warning: adding embedded git repository: scorpy2013/workspace/workspace/projects/lab02
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:   git submodule add <url> scorpy2013/workspace/workspace/projects/lab02
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:   git rm --cached scorpy2013/workspace/workspace/projects/lab02
+hint: 
+hint: See "git help submodule" for more information.
+warning: LF will be replaced by CRLF in sources/print.cpp.
+The file will have its original line endings in your working directory
+
+User@User-PC MINGW64 ~/lab02 (master)
+$ git commit -m"added sources"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'User@User-PC.(none)')
 $ git push origin master
 ```
 
@@ -144,6 +498,13 @@ $ git push origin master
 $ cd ~/workspace/
 $ export LAB_NUMBER=02
 $ git clone https://github.com/tp-labs/lab${LAB_NUMBER}.git tasks/lab${LAB_NUMBER}
+Cloning into 'tasks/lab02'...
+remote: Enumerating objects: 21, done.
+remote: Counting objects: 100% (21/21), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 93 (delta 6), reused 5 (delta 2), pack-reused 72R
+Receiving objects: 100% (93/93), 1.28 MiB | 237.00 KiB/s, done.
+Resolving deltas: 100% (28/28), done.
 $ mkdir reports/lab${LAB_NUMBER}
 $ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
 $ cd reports/lab${LAB_NUMBER}
