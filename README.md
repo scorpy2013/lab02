@@ -544,52 +544,107 @@ int main() {
 > return 0;
 > EOF
 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно `git add`?
-8. Запуште изменения в удалёный репозиторий.
+8. Запушьте изменения в удалёный репозиторий.
 	git commit -m "HelloWorld for Lab02"
 9. Проверьте, что история коммитов доступна в удалёный репозитории.
 	git show
+	commit 0dc94d9c9fe7556bc832fbc82e5b22c21b58328c (HEAD -> master, origin/master, origin/HEAD)
+Author: scorpy2013 <scorpy2013@gmail.com>
+Date:   Tue Apr 14 15:45:32 2020 +0400
+
+    Helloworld version 1
+
+diff --git a/helloworld.cpp b/helloworld.cpp
+new file mode 100644
+index 0000000..83d90e0
+--- /dev/null
++++ b/helloworld.cpp
+@@ -0,0 +1,8 @@
++#include <iostream>
++#include <string>
++using namespace std;
++int main() {
++string name;
++cin>>name;
++cout<<"Hello world, "<<name<<" !"<<endl;
++system("pause")
++return 0;
 
 ### Part II
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
-1. В локальной копии репозитория создайте локальную ветку `patch1`.
+- [x] 1. В локальной копии репозитория создайте локальную ветку `patch1`.
  git checkout -b patch1
  Switched to a new branch 'patch1'
-2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
-3. **commit**, **push** локальную ветку в удалённый репозиторий.
+- [x] 2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
+- [x] 3. **commit**, **push** локальную ветку в удалённый репозиторий.
  git add "helloworld.cpp"
  git commit -m "new helloworld"
  git push origin patch1
-4. Проверьте, что ветка `patch1` доступна в удалёный репозитории.
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (15/15), 3.13 KiB | 3.13 MiB/s, done.
+Total 15 (delta 1), reused 9 (delta 1), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'patch1' on GitHub by visiting:
+remote:      https://github.com/scorpy2013/Homework/pull/new/patch1
+remote:
+To https://github.com/scorpy2013/Homework.git
+ * [new branch]      patch1 -> patch1
+- [x] 4. Проверьте, что ветка `patch1` доступна в удалёный репозитории.
 git show
-5. Создайте pull-request `patch1 -> master`.
-6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
-7. **commit**, **push**.
+commit 3f84b8805c2e5ff4059b3526e473b7b0c11dc161 (HEAD -> patch1, origin/patch1, master)
+Author: scorpy2013 <61156928+scorpy2013@users.noreply.github.com>
+Date:   Tue Apr 14 16:29:35 2020 +0300
+diff --git a/README.md b/README.md
+index 84f6801..81df17c 100644
+--- a/README.md
++++ b/README.md
+@@ -10,22 +10,22 @@ $ open https://git-scm.com
+- [x] 5. Создайте pull-request `patch1 -> master`.
+- [x] 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
+- [x] 7. **commit**, **push**.
 git commit -m "add comments"
-8. Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
-9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
-10. Локально выполните **pull**.
+- [x] 8. Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
+- [x] 9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
+- [x] 10. Локально выполните **pull**.
 git pull
-11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
+Updating e6ac6e8..0852a1d 
+Fast-forward
+ helloworld.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+- [x] 11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
 git log
-12. Удалите локальную ветку `patch1`.
+commit 3f84b8805c2e5ff4059b3526e473b7b0c11dc161 (HEAD -> patch1, origin/patch1, master)
+Author: scorpy2013 <61156928+scorpy2013@users.noreply.github.com>
+Date:   Tue Apr 14 16:29:35 2020 +0300
+
+commit af8687b21746c774d987f07e8d89e3c9a3f821c2
+Author: rusdevops <rusdevops@gmail.com>
+Date:   Fri Apr 10 14:14:56 2020 +0300
+
+- [x] 12. Удалите локальную ветку `patch1`.
 git branch -d patch1
 
 ### Part III
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
-1. Создайте новую локальную ветку `patch2`.
-  git checkout -b patch2
+- [x] 1. Создайте новую локальную ветку `patch2`.
+  $ git checkout -b patch2
+Switched to a new branch 'patch2'
   Switched to a new branch 'patch2'
-2. Измените *code style* с помощью утилиты [**clang-format**](http://clang.llvm.org/docs/ClangFormat.html). Например, используя опцию `-style=Mozilla`.
+- [x] 2. Измените *code style* с помощью утилиты [**clang-format**](http://clang.llvm.org/docs/ClangFormat.html). Например, используя опцию `-style=Mozilla`.
   brew install -g clang-format
   clang-format -i -style=Mozilla hello_world.cpp
-3. **commit**, **push**, создайте pull-request `patch2 -> master`.
+- [x] 3. **commit**, **push**, создайте pull-request `patch2 -> master`.
  git commit -m "added styles" 
  git push origin patch2 
-4. В ветке **master** в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
-5. Убедитесь, что в pull-request появились *конфликтны*.
-6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). **Исправьте конфликты**.
+- [x] 4. В ветке **master** в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
+- [x] 5. Убедитесь, что в pull-request появились *конфликтны*.
+- [x] 6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). **Исправьте конфликты**.
    git add .
    git pull
    git checkout master
@@ -600,10 +655,20 @@ git branch -d patch1
    git rebase --continue
    git checkout master
    git merge patch2
-7. Сделайте *force push* в ветку `patch2`
+   Fast-forward
+ helloworld.cpp | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+- [x] 7. Сделайте *force push* в ветку `patch2`
    git push -f origin patch2
-8. Убедитель, что в pull-request пропали конфликтны. 
-9. Вмержите pull-request `patch2 -> master`.
+   Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 585 bytes | 585.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/scorpy2013/Homework.git
+- [x] 8. Убедитель, что в pull-request пропали конфликтны. 
+- [x] 9. Вмержите pull-request `patch2 -> master`.
 
 ## Links
 
