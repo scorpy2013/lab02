@@ -519,6 +519,7 @@ $ gist REPORT.md
 1. Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
 2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
 3. Создайте файл `hello_world.cpp` в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу **Hello world** на языке C++ используя плохой стиль кода. Например, после заголовочных файлов вставьте строку `using namespace std;`.
+```
 cat > helloworld.cpp<<EOF
 #include <iostream>
 using namespace std;
@@ -526,13 +527,13 @@ int main() {
     cout<<"Hello world!"<<endl;
     system("pause");
     return 0;
-}
+}```
 4. Добавьте этот файл в локальную копию репозитория.
 	git add .
 5. Закоммитьте изменения с *осмысленным* сообщением.
 	git commit -m "Hello everyone! I'm Alex!"
 6. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщение `Hello world from @name`, где `@name` имя пользователя.
-	cat > helloworld.cpp<<EOF
+```	cat > helloworld.cpp<<EOF
 > #include <iostream>
 > #include <string>
 > using namespace std;
@@ -542,16 +543,17 @@ int main() {
 > cout<<"Hello, "<<name<<" !"<<endl;
 > system("pause")
 > return 0;
-> EOF
+> EOF ```
 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно `git add`?
 8. Запушьте изменения в удалёный репозиторий.
 	git commit -m "HelloWorld for Lab02"
 9. Проверьте, что история коммитов доступна в удалёный репозитории.
+```
 	git show
 	commit 0dc94d9c9fe7556bc832fbc82e5b22c21b58328c (HEAD -> master, origin/master, origin/HEAD)
 Author: scorpy2013 <scorpy2013@gmail.com>
 Date:   Tue Apr 14 15:45:32 2020 +0400
-
+```
     Helloworld version 1
 
 diff --git a/helloworld.cpp b/helloworld.cpp
